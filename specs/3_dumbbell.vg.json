@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/gender_gap.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "activity",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Pilates",
+          "Yoga",
+          "Netball",
+          "AFL",
+          "Cricket",
+          "Cycling",
+          "Basketball",
+          "Running",
+          "Golf",
+          "Soccer"
+        ]
+      }
+    },
+    "x": {
+      "field": "rate",
+      "type": "quantitative",
+      "title": "Share of women / men who took part in 2025",
+      "axis": {
+        "format": "%"
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#B9C0C5",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "detail": {
+          "field": "activity",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "opacity": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Women",
+              "Men"
+            ],
+            "range": [
+              "#8B5FBF",
+              "#3F6FB5"
+            ]
+          },
+          "legend": {
+            "orient": "top"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "activity",
+            "type": "nominal",
+            "title": "Activity"
+          },
+          {
+            "field": "group",
+            "type": "nominal",
+            "title": "Group"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Took part",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.activity == 'Pilates' && datum.group == 'Women'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontStyle": "italic",
+        "fontSize": 12,
+        "color": "#8B5FBF"
+      },
+      "encoding": {
+        "text": {
+          "value": "11x more women than men"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+square,col,row,group
+1,0,0,"Organised (club, class or team)"
+2,1,0,"Organised (club, class or team)"
+3,2,0,"Organised (club, class or team)"
+4,3,0,"Organised (club, class or team)"
+5,4,0,"Organised (club, class or team)"
+6,5,0,"Organised (club, class or team)"
+7,6,0,"Organised (club, class or team)"
+8,7,0,"Organised (club, class or team)"
+9,8,0,"Organised (club, class or team)"
+10,9,0,"Organised (club, class or team)"
+11,0,1,"Organised (club, class or team)"
+12,1,1,"Organised (club, class or team)"
+13,2,1,"Organised (club, class or team)"
+14,3,1,"Organised (club, class or team)"
+15,4,1,"Organised (club, class or team)"
+16,5,1,"Organised (club, class or team)"
+17,6,1,"Organised (club, class or team)"
+18,7,1,"Organised (club, class or team)"
+19,8,1,"Organised (club, class or team)"
+20,9,1,"Organised (club, class or team)"
+21,0,2,"Organised (club, class or team)"
+22,1,2,"Organised (club, class or team)"
+23,2,2,"Organised (club, class or team)"
+24,3,2,"Organised (club, class or team)"
+25,4,2,"Organised (club, class or team)"
+26,5,2,"Organised (club, class or team)"
+27,6,2,"Organised (club, class or team)"
+28,7,2,"Organised (club, class or team)"
+29,8,2,"Organised (club, class or team)"
+30,9,2,"Organised (club, class or team)"
+31,0,3,"Organised (club, class or team)"
+32,1,3,"Organised (club, class or team)"
+33,2,3,"Organised (club, class or team)"
+34,3,3,"Organised (club, class or team)"
+35,4,3,"Organised (club, class or team)"
+36,5,3,"Organised (club, class or team)"
+37,6,3,"Organised (club, class or team)"
+38,7,3,"Organised (club, class or team)"
+39,8,3,"Organised (club, class or team)"
+40,9,3,"Organised (club, class or team)"
+41,0,4,"Organised (club, class or team)"
+42,1,4,"Organised (club, class or team)"
+43,2,4,Informal only
+44,3,4,Informal only
+45,4,4,Informal only
+46,5,4,Informal only
+47,6,4,Informal only
+48,7,4,Informal only
+49,8,4,Informal only
+50,9,4,Informal only
+51,0,5,Informal only
+52,1,5,Informal only
+53,2,5,Informal only
+54,3,5,Informal only
+55,4,5,Informal only
+56,5,5,Informal only
+57,6,5,Informal only
+58,7,5,Informal only
+59,8,5,Informal only
+60,9,5,Informal only
+61,0,6,Informal only
+62,1,6,Informal only
+63,2,6,Informal only
+64,3,6,Informal only
+65,4,6,Informal only
+66,5,6,Informal only
+67,6,6,Informal only
+68,7,6,Informal only
+69,8,6,Informal only
+70,9,6,Informal only
+71,0,7,Informal only
+72,1,7,Informal only
+73,2,7,Informal only
+74,3,7,Informal only
+75,4,7,Informal only
+76,5,7,Informal only
+77,6,7,Informal only
+78,7,7,Informal only
+79,8,7,Informal only
+80,9,7,Informal only
+81,0,8,Informal only
+82,1,8,Informal only
+83,2,8,Informal only
+84,3,8,Informal only
+85,4,8,Informal only
+86,5,8,Informal only
+87,6,8,No activity in 12 months
+88,7,8,No activity in 12 months
+89,8,8,No activity in 12 months
+90,9,8,No activity in 12 months
+91,0,9,No activity in 12 months
+92,1,9,No activity in 12 months
+93,2,9,No activity in 12 months
+94,3,9,No activity in 12 months
+95,4,9,No activity in 12 months
+96,5,9,No activity in 12 months
+97,6,9,No activity in 12 months
+98,7,9,No activity in 12 months
+99,8,9,No activity in 12 months
+100,9,9,No activity in 12 months

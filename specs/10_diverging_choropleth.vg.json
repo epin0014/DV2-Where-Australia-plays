@@ -1,0 +1,222 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0,
+      0
+    ]
+  },
+  "data": {
+    "url": "data/australia_states.topojson",
+    "format": {
+      "type": "topojson",
+      "feature": "states"
+    }
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "lookup": "properties.state",
+          "from": {
+            "data": {
+              "url": "data/football_share.csv"
+            },
+            "key": "state",
+            "fields": [
+              "afl_rate",
+              "rl_rate",
+              "afl_share",
+              "rl_reliability"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.rl_reliability == 'unreliable'",
+            "value": "#EBC9A6"
+          },
+          "field": "afl_share",
+          "type": "quantitative",
+          "title": "AFL share",
+          "scale": {
+            "domain": [
+              0,
+              0.5,
+              1
+            ],
+            "range": [
+              "#1F8A84",
+              "#F3F4F2",
+              "#C8702A"
+            ]
+          },
+          "legend": {
+            "format": ".0%",
+            "orient": "bottom-left"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "afl_rate",
+            "type": "quantitative",
+            "title": "Play AFL",
+            "format": ".1%"
+          },
+          {
+            "field": "rl_rate",
+            "type": "quantitative",
+            "title": "Play rugby league",
+            "format": ".1%"
+          },
+          {
+            "field": "afl_share",
+            "type": "quantitative",
+            "title": "AFL share",
+            "format": ".0%"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/football_share.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.state != 'ACT'"
+        },
+        {
+          "lookup": "state",
+          "from": {
+            "data": {
+              "url": "data/state_centroids.csv"
+            },
+            "key": "state",
+            "fields": [
+              "lon",
+              "lat"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 138.0,
+            "lat": -16.6
+          },
+          {
+            "lon": 138.0,
+            "lat": -26.0
+          },
+          {
+            "lon": 141.0,
+            "lat": -26.0
+          },
+          {
+            "lon": 141.0,
+            "lat": -29.0
+          },
+          {
+            "lon": 142.5,
+            "lat": -32.5
+          },
+          {
+            "lon": 146.38,
+            "lat": -35.99
+          },
+          {
+            "lon": 148.2,
+            "lat": -36.6
+          },
+          {
+            "lon": 149.98,
+            "lat": -37.5
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#24292D",
+        "strokeWidth": 1.6,
+        "strokeDash": [
+          6,
+          4
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

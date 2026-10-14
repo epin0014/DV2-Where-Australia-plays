@@ -1,0 +1,222 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 460,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EEF1F2",
+        "stroke": "white",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "data/osm_pitches_au.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.code != 'Both codes'"
+        }
+      ],
+      "params": [
+        {
+          "name": "code_highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "code"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "code",
+          "type": "nominal",
+          "title": "Click to isolate",
+          "scale": {
+            "domain": [
+              "Australian football",
+              "Rugby league"
+            ],
+            "range": [
+              "#C8702A",
+              "#1F8A84"
+            ]
+          },
+          "legend": {
+            "orient": "top-left"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "code_highlight",
+            "value": 0.75
+          },
+          "value": 0.04
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "Ground"
+          },
+          {
+            "field": "code",
+            "type": "nominal",
+            "title": "Code"
+          },
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 138.0,
+            "lat": -16.6
+          },
+          {
+            "lon": 138.0,
+            "lat": -26.0
+          },
+          {
+            "lon": 141.0,
+            "lat": -26.0
+          },
+          {
+            "lon": 141.0,
+            "lat": -29.0
+          },
+          {
+            "lon": 142.5,
+            "lat": -32.5
+          },
+          {
+            "lon": 146.38,
+            "lat": -35.99
+          },
+          {
+            "lon": 148.2,
+            "lat": -36.6
+          },
+          {
+            "lon": 149.98,
+            "lat": -37.5
+          }
+        ]
+      },
+      "mark": {
+        "type": "line",
+        "stroke": "#24292D",
+        "strokeWidth": 1.6,
+        "strokeDash": [
+          6,
+          4
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 137.6,
+            "lat": -21.0,
+            "text": "Barassi Line"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "fontStyle": "italic",
+        "fontSize": 12
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "text",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

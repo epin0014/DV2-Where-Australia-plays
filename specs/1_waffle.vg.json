@@ -1,0 +1,93 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 230,
+  "height": 230,
+  "data": {
+    "url": "data/waffle_squares.csv"
+  },
+  "params": [
+    {
+      "name": "group_highlight",
+      "select": {
+        "type": "point",
+        "fields": [
+          "group"
+        ]
+      },
+      "bind": "legend"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "col",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "axis": null
+    },
+    "color": {
+      "field": "group",
+      "type": "nominal",
+      "title": "Click to isolate",
+      "scale": {
+        "domain": [
+          "Organised (club, class or team)",
+          "Informal only",
+          "No activity in 12 months"
+        ],
+        "range": [
+          "#245E31",
+          "#9CC991",
+          "#E3E7E9"
+        ]
+      },
+      "legend": {
+        "orient": "bottom"
+      }
+    },
+    "opacity": {
+      "condition": {
+        "param": "group_highlight",
+        "value": 1
+      },
+      "value": 0.2
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "type": "nominal",
+        "title": "Group"
+      }
+    ]
+  },
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

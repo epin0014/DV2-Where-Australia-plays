@@ -1,0 +1,149 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 250,
+  "data": {
+    "url": "data/heatmap_age_activity.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "activity",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Walking",
+          "Gym",
+          "Bushwalking",
+          "Running",
+          "Swimming",
+          "Cycling",
+          "Pilates",
+          "Soccer",
+          "Yoga",
+          "Tennis",
+          "Golf",
+          "Basketball"
+        ]
+      },
+      "axis": {
+        "labelAngle": 0
+      }
+    },
+    "y": {
+      "field": "age_group",
+      "type": "ordinal",
+      "title": "Age group",
+      "scale": {
+        "domain": [
+          "15-17",
+          "18-24",
+          "25-34",
+          "35-44",
+          "45-54",
+          "55-64",
+          "65+"
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "rate",
+          "type": "quantitative",
+          "title": "Share of age group",
+          "scale": {
+            "domain": [
+              0,
+              0.66
+            ],
+            "range": [
+              "#EEF5EA",
+              "#CDE3C4",
+              "#9CC991",
+              "#62A866",
+              "#3A8547",
+              "#245E31"
+            ]
+          },
+          "legend": {
+            "format": "%"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "activity",
+            "type": "nominal",
+            "title": "Activity"
+          },
+          {
+            "field": "age_group",
+            "type": "ordinal",
+            "title": "Age"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Took part",
+            "format": ".1%"
+          },
+          {
+            "field": "participants",
+            "type": "quantitative",
+            "title": "People (estimate)",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "rate",
+          "type": "quantitative",
+          "format": ".0%"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.rate > 0.3",
+            "value": "white"
+          },
+          "value": "#24292D"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

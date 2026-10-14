@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where Australia Plays</title>
+
+  <!-- Imports -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="eyebrow">FIT3179 DATA VISUALISATION 2 · SPORTS PARTICIPATION IN AUSTRALIA</p>
+    <div class="pure-g">
+      <div class="pure-u-3-5">
+        <div class="col-left">
+          <h1>WHERE AUSTRALIA PLAYS</h1>
+          <p class="subtitle">Who moves, what we play, and the invisible line that splits the country's football.</p>
+          <p class="byline">Emilio Pinelo Landarte 37497731 · October 2026</p>
+          <p class="intro">Australia likes to think of itself as a sporting nation. The national AusPlay survey, which asks tens of thousands of Australians every year what they do to stay active, shows a more interesting picture: almost everyone moves, far fewer play organised sport, and <span class="bold">which</span> sport you play still depends on which side of an old, invisible line you grew up on.</p>
+        </div>
+      </div>
+      <div class="pure-u-2-5">
+        <div class="col-right kpis">
+          <div class="kpi pure-g">
+            <div class="pure-u-1-3"><p class="kpi-n">86%</p></div>
+            <div class="pure-u-2-3"><p class="kpi-l">of adults were physically active at least once in 2025</p></div>
+          </div>
+          <div class="kpi pure-g">
+            <div class="pure-u-1-3"><p class="kpi-n">42%</p></div>
+            <div class="pure-u-2-3"><p class="kpi-l">took part in organised sport or activity</p></div>
+          </div>
+          <div class="kpi pure-g">
+            <div class="pure-u-1-3"><p class="kpi-n">1 in 2</p></div>
+            <div class="pure-u-2-3"><p class="kpi-l">walk for recreation, the #1 activity</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="move">
+    <h2><span class="sec-n">1</span>We all move. Fewer of us play.</h2>
+    <div class="pure-g row">
+      <div class="pure-u-1-2">
+        <div class="col-left text">
+          <p>Picture 100 Australian adults. In 2025, 86 of them did some physical activity at least once, from a walk around the block to a weekly netball game. Only 14 did nothing at all.</p>
+          <p>But <span class="hl-org">only 42 took part in something organised</span>: a club, a class, a team, or a paid program. The other 44 kept moving on their own terms, mostly walking, running or going to the gym alone.</p>
+          <p class="aside">AusPlay counts an activity as "organised" when a club, association, gym, school or other organisation runs it.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="col-right">
+          <h3>86 in 100 adults moved in 2025. Only 42 did it through a club, class or team.</h3>
+          <p class="cap">1 square = 1 in 100 adults (15+). Click a colour in the legend to isolate it.</p>
+          <div id="vis1" class="vis"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="who">
+    <h2><span class="sec-n">2</span>Who plays</h2>
+    <p class="lead">So who are the 42 who play organised sport? Mostly the young. And what we choose to play still splits sharply between women and men.</p>
+    <div class="pure-g row">
+      <div class="pure-u-1-2">
+        <div class="col-left">
+          <h3>We keep moving as we age, but we stop playing organised sport</h3>
+          <p class="cap">Share of each age group active in any way (light) and in organised activity (dark), 2025.</p>
+          <div id="vis2" class="vis"></div>
+          <p class="note">Organised participation halves between ages 15–17 (61% of women, 59% of men) and 65+ (31% and 27%), while overall activity barely drops until 65.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div class="col-right">
+          <h3>Pilates, yoga and netball lean female. Golf and soccer lean male.</h3>
+          <p class="cap">Share of women and men who did each activity at least once in 2025.</p>
+          <div id="vis3" class="vis"></div>
+        </div>
+      </div>
+    </div>
+    <div class="wide">
+      <h3>Team sports belong to teenagers. Walking and golf grow with age.</h3>
+      <p class="cap">Share of each age group that did the activity at least once in 2025. The 12 most popular activities, most popular on the left.</p>
+      <div id="vis4" class="vis"></div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="change">
+    <h2><span class="sec-n">3</span>What we play is changing</h2>
+    <p class="lead">Walking and the gym have topped the list for a decade. Below them, the order is shifting: Pilates and bushwalking are climbing, and the gym grew faster than anything else in 2025.</p>
+    <div class="pure-g row">
+      <div class="pure-u-5-12">
+        <div class="col-left">
+          <h3>Pilates climbed from #13 to #7. Bushwalking jumped into the top 3.</h3>
+          <p class="cap">National ranking by share of adults taking part. Hover a point for details.</p>
+          <div id="vis5" class="vis"></div>
+          <p class="note">AusPlay moved from phone to online interviews in 2023, so the two periods are not joined. "Running" was counted inside "athletics" before 2024.</p>
+        </div>
+      </div>
+      <div class="pure-u-7-24">
+        <div class="col-mid">
+          <h3>The gym added the most people in one year</h3>
+          <p class="cap">Change in share of adults, 2024 to 2025 (percentage points).</p>
+          <div id="vis6" class="vis"></div>
+          <p class="note">+3.8 points is roughly 990,000 more adults going to the gym.</p>
+        </div>
+      </div>
+      <div class="pure-u-7-24">
+        <div class="col-right">
+          <h3>Seven of eight states got more active</h3>
+          <p class="cap">Adults active at least once a week, 2024 vs 2025.</p>
+          <div id="vis7" class="vis"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="where">
+    <h2><span class="sec-n">4</span>Where we play: the Barassi Line</h2>
+    <div class="pure-g row">
+      <div class="pure-u-3-5">
+        <div class="col-left">
+          <h3>3,023 football grounds draw the Barassi Line</h3>
+          <p class="cap">Every Australian football and rugby league ground mapped in OpenStreetMap. One dot = one ground. Click the legend to isolate a code.</p>
+          <div id="vis9" class="vis"></div>
+        </div>
+      </div>
+      <div class="pure-u-2-5">
+        <div class="col-right text">
+          <p>In his 1978 Ron Barassi Memorial Lecture, the historian Ian Turner named an imaginary line that runs down Queensland's western border, then south-east through western New South Wales to Cape Howe on the Victorian border. It became known as the <span class="bold">Barassi Line</span>.</p>
+          <p>West and south of the line, Australians play <span class="hl-afl">Australian football</span>. North and east of it, they play <span class="hl-rl">rugby league</span>.</p>
+          <p>Nearly 50 years later the grounds still follow the line: Victoria has <span class="bold">1,271 AFL grounds and just 11 rugby league grounds</span>, while New South Wales has more rugby league grounds than AFL ones.</p>
+          <p class="aside">OpenStreetMap is mapped by volunteers and covers cities better than the bush, so this map shows grounds that are mapped, not a full census.</p>
+        </div>
+      </div>
+    </div>
+    <p class="lead">The survey tells the same story with people instead of grounds, and shows which states are the most active overall.</p>
+    <div class="pure-g row">
+      <div class="pure-u-1-3">
+        <div class="col-left">
+          <h3>Where the players are</h3>
+          <p class="cap">Estimated adult players by state, 2025. Circle area = players. Choose a sport below.</p>
+          <div id="vis11" class="vis"></div>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="col-mid">
+          <h3>South and west play AFL. NSW and Queensland split down the middle.</h3>
+          <p class="cap">Australian football players as a share of all AFL and rugby league players, 2025.</p>
+          <div id="vis10" class="vis"></div>
+          <p class="note">* Rugby league in SA and Tasmania is too rare to estimate reliably, so those states are shaded as AFL only.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="col-right">
+          <h3>The ACT is the most active: 78% move every week</h3>
+          <p class="cap">Adults active at least once a week, 2025.</p>
+          <div id="vis8" class="vis"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="col-left">
+          <h4>TAKEAWAYS</h4>
+          <ul>
+            <li>Almost every adult moves, but fewer than half play organised sport, and the share keeps falling with age.</li>
+            <li>Individual fitness (gym, Pilates, bushwalking) is growing fastest.</li>
+            <li>Football is still regional: the Barassi Line shows up in both the grounds and the players.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="col-mid">
+          <h4>ABOUT THE DATA</h4>
+          <p>Participation figures are survey estimates for adults (15+) from AusPlay, January–December 2025, unless stated. Rankings compare 2017–2022 (phone survey) with 2024–2025 (online survey) separately. Estimates with a relative margin of error above 100% are not shown.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="col-right">
+          <h4>SOURCES</h4>
+          <ul>
+            <li>AusPlay data tables, <a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/results/data-tables" target="_blank">Australian Sports Commission</a> (released 30 April 2026)</li>
+            <li>Football grounds © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>, ODbL, extracted 9 Oct 2026</li>
+            <li>State boundaries: <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files" target="_blank">ABS ASGS Edition 3</a>, CC BY 4.0</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- end page -->
+
+<script src="js/main.js"></script>
+</body>
+</html>

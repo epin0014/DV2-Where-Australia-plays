@@ -1,0 +1,321 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/ausplay_organised_2025.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.sex != 'All' && datum.age_group != 'Total'"
+    }
+  ],
+  "hconcat": [
+    {
+      "width": 230,
+      "height": 230,
+      "title": {
+        "text": "Women",
+        "color": "#8B5FBF"
+      },
+      "transform": [
+        {
+          "filter": "datum.sex == 'Females'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "axis": null,
+          "scale": {
+            "domain": [
+              "65+",
+              "55-64",
+              "45-54",
+              "35-44",
+              "25-34",
+              "18-24",
+              "15-17"
+            ]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#E3D8F1"
+          },
+          "encoding": {
+            "x": {
+              "field": "any_participation",
+              "type": "quantitative",
+              "title": null,
+              "scale": {
+                "domain": [
+                  1,
+                  0
+                ]
+              },
+              "axis": {
+                "format": "%",
+                "tickCount": 3,
+                "grid": false
+              }
+            },
+            "tooltip": [
+              {
+                "field": "age_group",
+                "type": "ordinal",
+                "title": "Age"
+              },
+              {
+                "field": "any_participation",
+                "type": "quantitative",
+                "title": "Any activity",
+                "format": ".0%"
+              },
+              {
+                "field": "total_organised",
+                "type": "quantitative",
+                "title": "Organised",
+                "format": ".0%"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#8B5FBF"
+          },
+          "encoding": {
+            "x": {
+              "field": "total_organised",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "age_group",
+                "type": "ordinal",
+                "title": "Age"
+              },
+              {
+                "field": "any_participation",
+                "type": "quantitative",
+                "title": "Any activity",
+                "format": ".0%"
+              },
+              {
+                "field": "total_organised",
+                "type": "quantitative",
+                "title": "Organised",
+                "format": ".0%"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "color": "white",
+            "align": "left",
+            "dx": 4
+          },
+          "encoding": {
+            "x": {
+              "field": "total_organised",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "total_organised",
+              "type": "quantitative",
+              "format": ".0%"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 30,
+      "height": 230,
+      "transform": [
+        {
+          "filter": "datum.sex == 'Females'"
+        }
+      ],
+      "mark": {
+        "type": "text"
+      },
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "axis": null,
+          "scale": {
+            "domain": [
+              "65+",
+              "55-64",
+              "45-54",
+              "35-44",
+              "25-34",
+              "18-24",
+              "15-17"
+            ]
+          }
+        },
+        "text": {
+          "field": "age_group",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "width": 230,
+      "height": 230,
+      "title": {
+        "text": "Men",
+        "color": "#3F6FB5"
+      },
+      "transform": [
+        {
+          "filter": "datum.sex == 'Males'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "age_group",
+          "type": "ordinal",
+          "axis": null,
+          "scale": {
+            "domain": [
+              "65+",
+              "55-64",
+              "45-54",
+              "35-44",
+              "25-34",
+              "18-24",
+              "15-17"
+            ]
+          }
+        }
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#D6E1F2"
+          },
+          "encoding": {
+            "x": {
+              "field": "any_participation",
+              "type": "quantitative",
+              "title": null,
+              "scale": {
+                "domain": [
+                  0,
+                  1
+                ]
+              },
+              "axis": {
+                "format": "%",
+                "tickCount": 3,
+                "grid": false
+              }
+            },
+            "tooltip": [
+              {
+                "field": "age_group",
+                "type": "ordinal",
+                "title": "Age"
+              },
+              {
+                "field": "any_participation",
+                "type": "quantitative",
+                "title": "Any activity",
+                "format": ".0%"
+              },
+              {
+                "field": "total_organised",
+                "type": "quantitative",
+                "title": "Organised",
+                "format": ".0%"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#3F6FB5"
+          },
+          "encoding": {
+            "x": {
+              "field": "total_organised",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "age_group",
+                "type": "ordinal",
+                "title": "Age"
+              },
+              {
+                "field": "any_participation",
+                "type": "quantitative",
+                "title": "Any activity",
+                "format": ".0%"
+              },
+              {
+                "field": "total_organised",
+                "type": "quantitative",
+                "title": "Organised",
+                "format": ".0%"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "color": "white",
+            "align": "right",
+            "dx": -4
+          },
+          "encoding": {
+            "x": {
+              "field": "total_organised",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "total_organised",
+              "type": "quantitative",
+              "format": ".0%"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

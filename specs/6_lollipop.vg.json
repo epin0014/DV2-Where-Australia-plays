@@ -1,0 +1,157 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 260,
+  "data": {
+    "url": "data/activity_change.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "activity",
+      "type": "nominal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "Gym",
+          "Pilates",
+          "Bushwalking",
+          "Running",
+          "Walking",
+          "Golf",
+          "AFL",
+          "Basketball",
+          "Athletics",
+          "Cycling"
+        ]
+      }
+    },
+    "x": {
+      "field": "change",
+      "type": "quantitative",
+      "title": "Change (percentage points)",
+      "scale": {
+        "domain": [
+          -1.5,
+          4.5
+        ]
+      }
+    },
+    "color": {
+      "condition": {
+        "test": "datum.change > 0",
+        "value": "#245E31"
+      },
+      "value": "#7A8288"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 2.5
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "opacity": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "activity",
+            "type": "nominal",
+            "title": "Activity"
+          },
+          {
+            "field": "rate_2024",
+            "type": "quantitative",
+            "title": "2024",
+            "format": ".1%"
+          },
+          {
+            "field": "rate_2025",
+            "type": "quantitative",
+            "title": "2025",
+            "format": ".1%"
+          },
+          {
+            "field": "change",
+            "type": "quantitative",
+            "title": "Change (points)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.change > 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "change",
+          "type": "quantitative",
+          "format": "+.1f"
+        },
+        "color": {
+          "value": "#5E676D"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.change <= 0"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "change",
+          "type": "quantitative",
+          "format": "+.1f"
+        },
+        "color": {
+          "value": "#5E676D"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "data/bump_ranks.csv"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "scale": {
+        "domain": [
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025"
+        ]
+      },
+      "axis": {
+        "labelAngle": 0
+      }
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2023"
+          }
+        ]
+      },
+      "mark": {
+        "type": "bar",
+        "color": "#EEF1F2"
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "!(datum.activity == 'Pilates' || datum.activity == 'Bushwalking')"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "color": "#B9C0C5",
+        "strokeWidth": 1.8
+      },
+      "encoding": {
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [
+              13,
+              1
+            ]
+          },
+          "axis": {
+            "labelExpr": "'#' + datum.value",
+            "grid": false
+          }
+        },
+        "detail": {
+          "field": "series",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "!(datum.activity == 'Pilates' || datum.activity == 'Bushwalking')"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#B9C0C5",
+        "size": 30,
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [
+              13,
+              1
+            ]
+          },
+          "axis": {
+            "labelExpr": "'#' + datum.value",
+            "grid": false
+          }
+        },
+        "tooltip": [
+          {
+            "field": "activity",
+            "type": "nominal",
+            "title": "Activity"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Took part",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.activity == 'Pilates' || datum.activity == 'Bushwalking'"
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3.5
+      },
+      "encoding": {
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [
+              13,
+              1
+            ]
+          },
+          "axis": {
+            "labelExpr": "'#' + datum.value",
+            "grid": false
+          }
+        },
+        "detail": {
+          "field": "series",
+          "type": "nominal"
+        },
+        "color": {
+          "field": "activity",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Pilates",
+              "Bushwalking"
+            ],
+            "range": [
+              "#245E31",
+              "#62A866"
+            ]
+          },
+          "legend": null
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.activity == 'Pilates' || datum.activity == 'Bushwalking'"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 60,
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [
+              13,
+              1
+            ]
+          },
+          "axis": {
+            "labelExpr": "'#' + datum.value",
+            "grid": false
+          }
+        },
+        "color": {
+          "field": "activity",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Pilates",
+              "Bushwalking"
+            ],
+            "range": [
+              "#245E31",
+              "#62A866"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "activity",
+            "type": "nominal",
+            "title": "Activity"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank"
+          },
+          {
+            "field": "rate",
+            "type": "quantitative",
+            "title": "Took part",
+            "format": ".1%"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 9,
+        "fontSize": 11
+      },
+      "encoding": {
+        "y": {
+          "field": "rank",
+          "type": "quantitative",
+          "title": "Rank",
+          "scale": {
+            "domain": [
+              13,
+              1
+            ]
+          },
+          "axis": {
+            "labelExpr": "'#' + datum.value",
+            "grid": false
+          }
+        },
+        "text": {
+          "field": "activity",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.activity == 'Pilates' || datum.activity == 'Bushwalking'",
+            "value": "#245E31"
+          },
+          "value": "#5E676D"
+        }
+      }
+    }
+  ],
+  "config": {
+    "font": "Source Sans 3",
+    "view": {
+      "stroke": null
+    },
+    "title": {
+      "font": "Barlow Condensed",
+      "fontSize": 18
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "labelColor": "#3B4246",
+      "titleColor": "#5E676D"
+    }
+  }
+}
