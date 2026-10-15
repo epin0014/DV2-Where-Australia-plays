@@ -32,4 +32,4 @@ Chart tables, made from the cleaned AusPlay data with `make_chart_tables.py` (on
 - Australian football and rugby league grounds © OpenStreetMap contributors (ODbL), extracted 9 October 2026 via the Overpass API.
 - State and territory boundaries: ABS ASGS Edition 3 (2021), CC BY 4.0, simplified with mapshaper.
 
-Generative AI (Claude) assisted with the data cleaning scripts and text editing.
+Generative AI (Claude) helped with data-cleaning scripts, questions about code, and text editing.
