@@ -53,7 +53,7 @@
       ],
       "mark": {
         "type": "circle",
-        "size": 9
+        "opacity": 0.75
       },
       "encoding": {
         "longitude": {
@@ -82,12 +82,12 @@
             "orient": "top-left"
           }
         },
-        "opacity": {
+        "size": {
           "condition": {
             "param": "code_highlight",
-            "value": 0.75
+            "value": 9
           },
-          "value": 0.04
+          "value": 0
         },
         "tooltip": [
           {

@@ -14,7 +14,7 @@
       "height": 230,
       "title": {
         "text": "Women",
-        "color": "#8B5FBF"
+        "color": "#C2457E"
       },
       "transform": [
         {
@@ -43,7 +43,7 @@
         {
           "mark": {
             "type": "bar",
-            "color": "#E3D8F1"
+            "color": "#EDC7D8"
           },
           "encoding": {
             "x": {
@@ -86,7 +86,7 @@
         {
           "mark": {
             "type": "bar",
-            "color": "#8B5FBF"
+            "color": "#C2457E"
           },
           "encoding": {
             "x": {
@@ -174,7 +174,7 @@
       "height": 230,
       "title": {
         "text": "Men",
-        "color": "#3F6FB5"
+        "color": "#1F5F9E"
       },
       "transform": [
         {
@@ -203,7 +203,7 @@
         {
           "mark": {
             "type": "bar",
-            "color": "#D6E1F2"
+            "color": "#BCCFE2"
           },
           "encoding": {
             "x": {
@@ -246,7 +246,7 @@
         {
           "mark": {
             "type": "bar",
-            "color": "#3F6FB5"
+            "color": "#1F5F9E"
           },
           "encoding": {
             "x": {

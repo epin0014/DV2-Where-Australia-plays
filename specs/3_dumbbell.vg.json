@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 260,
+  "height": 230,
   "data": {
     "url": "data/gender_gap.csv"
   },
@@ -65,8 +65,8 @@
               "Men"
             ],
             "range": [
-              "#8B5FBF",
-              "#3F6FB5"
+              "#C2457E",
+              "#1F5F9E"
             ]
           },
           "legend": {
@@ -105,7 +105,7 @@
         "dx": 10,
         "fontStyle": "italic",
         "fontSize": 12,
-        "color": "#8B5FBF"
+        "color": "#C2457E"
       },
       "encoding": {
         "text": {

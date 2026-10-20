@@ -84,8 +84,8 @@
         {
           "mark": {
             "type": "circle",
-            "color": "#5A6B78",
-            "opacity": 0.55,
+            "color": "#AEBBC4",
+            "opacity": 0.5,
             "stroke": "#5A6B78",
             "strokeWidth": 1
           },
@@ -142,10 +142,16 @@
           }
         },
         {
+          "transform": [
+            {
+              "filter": "datum.state != 'ACT'"
+            }
+          ],
           "mark": {
             "type": "text",
             "dy": -7,
-            "fontSize": 11
+            "fontSize": 11,
+            "color": "#24292D"
           },
           "encoding": {
             "text": {
@@ -155,10 +161,59 @@
           }
         },
         {
+          "transform": [
+            {
+              "filter": "datum.state != 'ACT'"
+            }
+          ],
           "mark": {
             "type": "text",
             "dy": 7,
-            "fontSize": 11
+            "fontSize": 11,
+            "color": "#24292D"
+          },
+          "encoding": {
+            "text": {
+              "field": "participants",
+              "type": "quantitative",
+              "format": ".2s"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state == 'ACT'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 8,
+            "dy": -7,
+            "fontSize": 11,
+            "color": "#24292D"
+          },
+          "encoding": {
+            "text": {
+              "field": "state",
+              "type": "nominal"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state == 'ACT'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 8,
+            "dy": 7,
+            "fontSize": 11,
+            "color": "#24292D"
           },
           "encoding": {
             "text": {
